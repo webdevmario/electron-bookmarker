@@ -5,10 +5,27 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "win": "electron-builder -w",
     "watch": "nodemon --exec 'electron .'",
-    "reset": "git reset --hard"
+    "reset": "git reset --hard",
+    "make-cert": "electron-builder create-self-signed-cert -p mario"
   },
-  "repository": "",
+  "build": {
+    "appId": "com.electron-bookmarker",
+    "directories": {
+      "buildResources": "."
+    },
+    "win": {
+      "publish": ["github" ],
+      "certificateFile": "private/mario.pfx",
+      "verifyUpdateCodeSignature": false,
+      "publisherName": "mario"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mportillo80/electron-bookmarker.git"
+  },
   "keywords": [
     "electron",
     "demo"
@@ -17,6 +34,7 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^5.0.0",
+    "electron-builder": "^21.0.15",
     "nodemon": "^1.18.9"
   },
   "dependencies": {

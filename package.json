@@ -16,7 +16,9 @@
       "buildResources": "."
     },
     "win": {
-      "publish": ["github" ],
+      "publish": [
+        "github"
+      ],
       "certificateFile": "private/mario.pfx",
       "verifyUpdateCodeSignature": false,
       "publisherName": "mario"
@@ -38,6 +40,8 @@
     "nodemon": "^1.18.9"
   },
   "dependencies": {
+    "electron-log": "^3.0.6",
+    "electron-updater": "^4.1.2",
     "electron-window-state": "^5.0.3"
   }
 }

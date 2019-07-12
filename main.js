@@ -2,6 +2,8 @@
 const {app, BrowserWindow} = require('electron')
 const windowStateKeeper = require('electron-window-state')
 
+const updater = require('./updater')
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
@@ -39,7 +41,18 @@ function createWindow () {
 }
 
 // Electron `app` is ready
-app.on('ready', createWindow)
+app.on('ready', () => {
+
+  // create main window
+  createWindow()
+
+  // check for update after x seconds
+  try {
+    setTimeout(updater.check, 2000)
+  } catch(err) {
+    // console.log('error: ', err)
+  }
+})
 
 // Quit when all windows are closed - (Not macOS - Darwin)
 app.on('window-all-closed', () => {

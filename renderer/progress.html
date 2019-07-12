@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Downloading New Version</title>
+</head>
+<body>
+  <progress value="0" max="100" style="width: 100%;" id="progress"></progress>
+
+  <script>
+
+    // require ipc
+    const {ipcRenderer} = require('electron')
+
+    // request process every second
+    setInterval(() => {
+
+      // request a sync response via ipc
+      let progress = ipcRenderer.sendSync('download-progress-request')
+      let elem = document.getElementById('progress')
+
+      elem.value = progress
+    }, 1000)
+
+  </script>
+</body>
+</html>

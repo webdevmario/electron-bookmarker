@@ -1,6 +1,6 @@
 {
   "name": "bookmarker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Electron Bookmarker",
   "main": "main.js",
   "scripts": {

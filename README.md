@@ -33,3 +33,12 @@ Note: local installation required for build scripts that are taken advantage of 
 - relevant files for update process (how repo gets checked)
   - "dist\win-unpacked\resources\app-update.yml"
   - "dist\latest.yml"
+
+## New Release Flow
+
+1. make changes
+2. update package.json with new version number
+3. commit and push to server
+4. set up a release draft based on new version
+5. perform build and publish step
+6. install from latest installation file produced
